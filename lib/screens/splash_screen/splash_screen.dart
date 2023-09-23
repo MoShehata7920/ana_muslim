@@ -1,4 +1,4 @@
-import 'package:ana_muslim/widgets/splash_view_body.dart';
+import 'package:ana_muslim/screens/splash_screen/splash_view_body.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatelessWidget {

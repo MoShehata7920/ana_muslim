@@ -2,6 +2,7 @@ const String imagePath = 'assets/images';
 const String jsonPath = 'assets/json';
 
 class ImageAssets {
+  static const String quranIcon = "$imagePath/main_icon.png";
   static const String ahadeth = "$imagePath/ahadeth.png";
   static const String darkBackground = "$imagePath/dark_bg.png";
   static const String hadethIcon = "$imagePath/hadeth_icon.png";

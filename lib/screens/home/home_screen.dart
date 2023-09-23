@@ -35,7 +35,7 @@ class _HomeScreenState extends State<HomeScreen> {
   final List<Widget> _screens = [
     const RadioScreen(),
     const SebhaScreen(),
-    const QuranScreen(),
+    QuranScreen(),
     const AhadethScreen(),
     const SettingsScreen()
   ];

@@ -12,6 +12,7 @@ class AppStrings {
   static const String radio = "الراديو";
   static const String tasbeh = "التسبيح";
   static const String quran = "القرآن";
+  static const String quranElKareem = "القرآن الكريم";
   static const String ahadeth = "الأحاديث";
   static const String settings = "الإعدادات";
 }

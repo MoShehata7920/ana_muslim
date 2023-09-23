@@ -52,7 +52,10 @@ class _SplashViewBodyState extends State<SplashViewBody> {
                   ),
                   Text(
                     AppStrings.developedBy,
-                    style: TextStyle(color: ColorsManager.primaryColor),
+                    style: TextStyle(
+                      color: ColorsManager.primaryColor,
+                      fontSize: 18,
+                    ),
                   ).animateOnPageLoad(
                       msDelay: 300, dx: 0.0, dy: 70.0, showDelay: 300),
                   const SizedBox(
@@ -62,6 +65,7 @@ class _SplashViewBodyState extends State<SplashViewBody> {
                     AppStrings.mohamedShehata,
                     style: TextStyle(
                       color: ColorsManager.primaryText,
+                      fontSize: 16,
                     ),
                   ).animateOnPageLoad(
                       msDelay: 300, dx: 0.0, dy: 70.0, showDelay: 300),

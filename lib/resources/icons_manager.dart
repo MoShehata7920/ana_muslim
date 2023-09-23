@@ -1,7 +1,5 @@
+import 'package:flutter_iconly/flutter_iconly.dart';
 
-
-import 'package:flutter/material.dart';
-
-class IconsManager {
-  static const book = Icons.book;
+class AppIcons {
+  static const settings = IconlyBroken.setting;
 }

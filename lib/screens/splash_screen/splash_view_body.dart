@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'package:ana_muslim/resources/assets_manager.dart';
-import 'package:ana_muslim/resources/colors_manager.dart';
 import 'package:ana_muslim/resources/routes_manager.dart';
 import 'package:ana_muslim/resources/strings_manager.dart';
 import 'package:ana_muslim/service/animation.dart';
@@ -26,53 +25,45 @@ class _SplashViewBodyState extends State<SplashViewBody> {
   Widget build(BuildContext context) {
     Size size = Utils(context).screenSize;
 
-    return Container(
-      decoration: const BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage(ImageAssets.darkBackground),
-          fit: BoxFit.cover,
-        ),
-      ),
-      child: SingleChildScrollView(
-        child: Center(
-          child: Column(
-            children: [
-              SizedBox(
-                height: size.height * 0.1,
-              ),
-              SizedBox(
-                height: size.height * 0.4,
-                child: Lottie.asset(JsonAssets.splash).animateOnPageLoad(
-                    msDelay: 150, dx: 0.0, dy: -200.0, showDelay: 900),
-              ),
-              Column(
-                children: [
-                  SizedBox(
-                    height: size.height * 0.35,
+    return SingleChildScrollView(
+      child: Center(
+        child: Column(
+          children: [
+            SizedBox(
+              height: size.height * 0.1,
+            ),
+            SizedBox(
+              height: size.height * 0.4,
+              child: Lottie.asset(JsonAssets.splash).animateOnPageLoad(
+                  msDelay: 150, dx: 0.0, dy: -200.0, showDelay: 900),
+            ),
+            Column(
+              children: [
+                SizedBox(
+                  height: size.height * 0.35,
+                ),
+                const Text(
+                  AppStrings.developedBy,
+                  style: TextStyle(
+                    color: Color(0xFF00BCD4),
+                    fontSize: 18,
                   ),
-                  Text(
-                    AppStrings.developedBy,
-                    style: TextStyle(
-                      color: ColorsManager.primaryColor,
-                      fontSize: 18,
-                    ),
-                  ).animateOnPageLoad(
-                      msDelay: 300, dx: 0.0, dy: 70.0, showDelay: 300),
-                  const SizedBox(
-                    height: 10,
+                ).animateOnPageLoad(
+                    msDelay: 300, dx: 0.0, dy: 70.0, showDelay: 300),
+                const SizedBox(
+                  height: 10,
+                ),
+                const Text(
+                  AppStrings.mohamedShehata,
+                  style: TextStyle(
+                    color: Color(0xFF707099),
+                    fontSize: 16,
                   ),
-                  Text(
-                    AppStrings.mohamedShehata,
-                    style: TextStyle(
-                      color: ColorsManager.primaryText,
-                      fontSize: 16,
-                    ),
-                  ).animateOnPageLoad(
-                      msDelay: 300, dx: 0.0, dy: 70.0, showDelay: 300),
-                ],
-              ),
-            ],
-          ),
+                ).animateOnPageLoad(
+                    msDelay: 300, dx: 0.0, dy: 70.0, showDelay: 300),
+              ],
+            ),
+          ],
         ),
       ),
     );

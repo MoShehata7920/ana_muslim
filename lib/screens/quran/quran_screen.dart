@@ -1,5 +1,6 @@
 import 'package:ana_muslim/resources/assets_manager.dart';
 import 'package:ana_muslim/resources/strings_manager.dart';
+import 'package:ana_muslim/service/animation.dart';
 import 'package:flutter/material.dart';
 
 class QuranScreen extends StatelessWidget {
@@ -10,13 +11,14 @@ class QuranScreen extends StatelessWidget {
     return Column(
       children: [
         Center(
-          child: Image.asset(ImageAssets.quranIcon),
+          child: Image.asset(ImageAssets.quranIcon).animateOnPageLoad(
+              msDelay: 150, dx: 0.0, dy: -200.0, showDelay: 900),
         ),
         const Divider(color: Color(0xFFB7935F), thickness: 2),
         Text(
           AppStrings.quranElKareem,
           style: Theme.of(context).textTheme.bodyMedium,
-        ),
+        ).animateOnPageLoad(msDelay: 150, dx: 0.0, dy: -200.0, showDelay: 900),
         const Divider(color: Color(0xFFB7935F), thickness: 2),
         Expanded(
           child: ListView.separated(

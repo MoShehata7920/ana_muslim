@@ -1,14 +1,13 @@
-import 'package:ana_muslim/provider/theme_provider.dart';
 import 'package:ana_muslim/resources/assets_manager.dart';
 import 'package:ana_muslim/resources/icons_manager.dart';
 import 'package:ana_muslim/resources/strings_manager.dart';
+import 'package:ana_muslim/service/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:ana_muslim/screens/ahadeth/ahadeth_screen.dart';
 import 'package:ana_muslim/screens/quran/quran_screen.dart';
 import 'package:ana_muslim/screens/radio/radio_screen.dart';
 import 'package:ana_muslim/screens/sebha/sebha_screen.dart';
 import 'package:ana_muslim/screens/settings/settings_screen.dart';
-import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -43,12 +42,12 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    bool isDarkTheme = Provider.of<ThemeProvider>(context).getDarkTheme;
+    String scaffoldBackground = Utils(context).scaffoldBackgroundImage;
 
     return Stack(
       children: [
         Image.asset(
-          isDarkTheme ? ImageAssets.darkBackground : ImageAssets.mainBackground,
+          scaffoldBackground,
           width: double.infinity,
           fit: BoxFit.cover,
         ),
@@ -69,7 +68,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   List<BottomNavigationBarItem> _navBarItems(BuildContext context) {
-    bool isDarkTheme = Provider.of<ThemeProvider>(context).getDarkTheme;
+    Color bottomNavBarColor = Utils(context).bottomNavBarColor;
 
     return [
       BottomNavigationBarItem(
@@ -78,7 +77,7 @@ class _HomeScreenState extends State<HomeScreen> {
           size: 30,
         ),
         label: AppStrings.radio,
-        backgroundColor: isDarkTheme ? const Color(0xFF031A2E) : Colors.white38,
+        backgroundColor: bottomNavBarColor,
       ),
       BottomNavigationBarItem(
         icon: const ImageIcon(
@@ -86,7 +85,7 @@ class _HomeScreenState extends State<HomeScreen> {
           size: 30,
         ),
         label: AppStrings.tasbeh,
-        backgroundColor: isDarkTheme ? const Color(0xFF031A2E) : Colors.white38,
+        backgroundColor: bottomNavBarColor,
       ),
       BottomNavigationBarItem(
         icon: const ImageIcon(
@@ -94,7 +93,7 @@ class _HomeScreenState extends State<HomeScreen> {
           size: 30,
         ),
         label: AppStrings.quran,
-        backgroundColor: isDarkTheme ? const Color(0xFF031A2E) : Colors.white38,
+        backgroundColor: bottomNavBarColor,
       ),
       BottomNavigationBarItem(
         icon: const ImageIcon(
@@ -102,12 +101,12 @@ class _HomeScreenState extends State<HomeScreen> {
           size: 30,
         ),
         label: AppStrings.ahadeth,
-        backgroundColor: isDarkTheme ? const Color(0xFF031A2E) : Colors.white38,
+        backgroundColor: bottomNavBarColor,
       ),
       BottomNavigationBarItem(
         icon: const Icon(AppIcons.settings),
         label: AppStrings.settings,
-        backgroundColor: isDarkTheme ? const Color(0xFF031A2E) : Colors.white38,
+        backgroundColor: bottomNavBarColor,
       )
     ];
   }

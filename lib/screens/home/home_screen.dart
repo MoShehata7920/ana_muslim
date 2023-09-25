@@ -36,7 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
     const RadioScreen(),
     const SebhaScreen(),
     QuranScreen(),
-    const AhadethScreen(),
+    AhadethScreen(),
     const SettingsScreen()
   ];
 

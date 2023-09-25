@@ -16,4 +16,10 @@ class Utils {
 
   Color get bottomNavBarColor =>
       isDarkTheme ? const Color(0xFF031A2E) : Colors.white38;
+
+  Color get textColor =>
+      isDarkTheme ? const Color(0xFFFACC1D) : const Color(0xFF0A4575);
+
+  Color get suraDecoration =>
+      isDarkTheme ? const Color(0x220A4575) : const Color(0x7EFFFFFF);
 }

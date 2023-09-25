@@ -1,8 +1,11 @@
+import 'package:ana_muslim/service/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class MyThemeData {
   static ThemeData themeData(bool isDarkTheme, BuildContext context) {
+    Color textColor = Utils(context).textColor;
+
     return ThemeData(
       scaffoldBackgroundColor: Colors.transparent,
       primaryColor: const Color(0xFFEEE7DF),
@@ -12,8 +15,7 @@ class MyThemeData {
         type: BottomNavigationBarType.shifting,
         backgroundColor:
             isDarkTheme ? const Color(0xFF0A4575) : const Color(0x60FFFFFF),
-        selectedItemColor:
-            isDarkTheme ? const Color(0xFFFACC1D) : const Color(0xFF0A4575),
+        selectedItemColor: textColor,
         unselectedItemColor: Colors.blueGrey,
       ),
       textTheme: TextTheme(
@@ -26,14 +28,12 @@ class MyThemeData {
         bodyMedium: GoogleFonts.elMessiri(
           fontSize: 25,
           fontWeight: FontWeight.w600,
-          color:
-              isDarkTheme ? const Color(0xFFFACC1D) : const Color(0xFF0A4575),
+          color: textColor,
         ),
         bodySmall: GoogleFonts.elMessiri(
           fontSize: 20,
           fontWeight: FontWeight.normal,
-          color:
-              isDarkTheme ? const Color(0xFFFACC1D) : const Color(0xFF0A4575),
+          color: textColor,
         ),
       ),
       colorScheme: ThemeData().colorScheme.copyWith(

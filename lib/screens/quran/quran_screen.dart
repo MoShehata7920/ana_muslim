@@ -1,4 +1,6 @@
+import 'package:ana_muslim/models/sura_model.dart';
 import 'package:ana_muslim/resources/assets_manager.dart';
+import 'package:ana_muslim/resources/routes_manager.dart';
 import 'package:ana_muslim/resources/strings_manager.dart';
 import 'package:ana_muslim/service/animation.dart';
 import 'package:flutter/material.dart';
@@ -31,18 +33,24 @@ class QuranScreen extends StatelessWidget {
               );
             },
             itemBuilder: (context, index) {
-              return Center(
-                  child: Text(_suraNames[index],
-                      style: Theme.of(context).textTheme.bodySmall));
+              return InkWell(
+                onTap: () {
+                  Navigator.pushNamed(context, Routes.suraRoute,
+                          arguments: SuraModel(_suraName[index], index));
+                },
+                child: Center(
+                    child: Text(_suraName[index],
+                        style: Theme.of(context).textTheme.bodySmall)),
+              );
             },
-            itemCount: _suraNames.length,
+            itemCount: _suraName.length,
           ),
         ),
       ],
     );
   }
 
-  final List<String> _suraNames = [
+  final List<String> _suraName = [
     "الفاتحه",
     "البقرة",
     "آل عمران",

@@ -15,4 +15,8 @@ class AppStrings {
   static const String quranElKareem = "القرآن الكريم";
   static const String ahadeth = "الأحاديث";
   static const String settings = "الإعدادات";
+
+  // Sura Screen
+  static const String besmAllah = "بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ";
+  static const String juzaa = "الجزء";
 }

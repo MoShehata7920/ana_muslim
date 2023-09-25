@@ -13,6 +13,9 @@ class ImageAssets {
   static const String radio = "$imagePath/radio.png";
   static const String sebhaIcon = "$imagePath/sebha_icon.png";
   static const String sebha = "$imagePath/sebha.png";
+  static const String ayahNumber = "$imagePath/nomor-surah.png";
+  static const String makkah = "$imagePath/makkah.png";
+  static const String madena = "$imagePath/madena.png";
 }
 
 class JsonAssets {

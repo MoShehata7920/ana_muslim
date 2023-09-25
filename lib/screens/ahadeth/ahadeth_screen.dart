@@ -1,12 +1,13 @@
 import 'package:ana_muslim/models/hadeth_model.dart';
 import 'package:ana_muslim/resources/assets_manager.dart';
+import 'package:ana_muslim/resources/routes_manager.dart';
 import 'package:ana_muslim/resources/strings_manager.dart';
 import 'package:ana_muslim/widgets/custom_screen_top.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class AhadethScreen extends StatefulWidget {
-  AhadethScreen({super.key});
+  const AhadethScreen({super.key});
 
   @override
   State<AhadethScreen> createState() => _AhadethScreenState();
@@ -41,8 +42,8 @@ class _AhadethScreenState extends State<AhadethScreen> {
         itemBuilder: (context, index) {
           return InkWell(
             onTap: () {
-              // Navigator.pushNamed(context, HadethDetails.routeName,
-              //     arguments: ahadethData[index]);
+              Navigator.pushNamed(context, Routes.hadethRoute,
+                  arguments: ahadethData[index]);
             },
             child: Center(
                 child: Text(ahadethData[index].name,

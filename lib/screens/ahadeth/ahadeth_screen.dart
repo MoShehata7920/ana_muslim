@@ -56,7 +56,7 @@ class _AhadethScreenState extends State<AhadethScreen> {
   }
 
   void loadHadeth() async {
-    String file = await rootBundle.loadString("assets/ahadeth/ahadeth .txt");
+    String file = await rootBundle.loadString("assets/files/ahadeth .txt");
     List<String> ahadeth = file.split('#');
 
     for (int i = 0; i < ahadeth.length; i++) {

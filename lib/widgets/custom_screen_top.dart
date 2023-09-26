@@ -3,7 +3,10 @@ import 'package:flutter/material.dart';
 
 class CustomScreenTop extends StatelessWidget {
   const CustomScreenTop(
-      {super.key, required this.topIcon, required this.screenTitle, required this.screenBody});
+      {super.key,
+      required this.topIcon,
+      required this.screenTitle,
+      required this.screenBody});
   final String topIcon, screenTitle;
   final Widget screenBody;
 

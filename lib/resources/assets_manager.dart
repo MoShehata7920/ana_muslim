@@ -14,6 +14,7 @@ class ImageAssets {
   static const String ayahNumber = "$imagePath/nomor-surah.png";
   static const String makkah = "$imagePath/makkah.png";
   static const String madena = "$imagePath/madena.png";
+  static const String tasbeh = "$imagePath/tasbeh.png";
 }
 
 class JsonAssets {

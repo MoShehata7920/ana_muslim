@@ -1,3 +1,4 @@
+import 'package:ana_muslim/provider/sebha_provider.dart';
 import 'package:ana_muslim/provider/theme_provider.dart';
 import 'package:ana_muslim/resources/routes_manager.dart';
 import 'package:ana_muslim/resources/theme_data.dart';
@@ -37,6 +38,11 @@ class _MyAppState extends State<MyApp> {
         ChangeNotifierProvider(
           create: (_) {
             return themeChangeProvider;
+          },
+        ),
+        ChangeNotifierProvider(
+          create: (_) {
+            return SebhaProvider();
           },
         ),
       ],

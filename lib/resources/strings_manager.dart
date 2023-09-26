@@ -20,4 +20,9 @@ class AppStrings {
   // Sura Screen
   static const String besmAllah = "بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ";
   static const String juzaa = "الجزء";
+
+  // Sebha Screen
+  static const String sebhaCounter = "عدد التسابيح:";
+  static const String sabah = "سبح";
+  static const String reset = "إعادة تعيين";
 }

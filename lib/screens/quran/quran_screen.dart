@@ -36,7 +36,7 @@ class QuranScreen extends StatelessWidget {
             },
             child: Center(
                 child: Text(_suraName[index],
-                    style: Theme.of(context).textTheme.bodySmall)),
+                    style: const TextStyle(fontSize: 20))),
           );
         },
         itemCount: _suraName.length,

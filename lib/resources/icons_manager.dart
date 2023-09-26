@@ -1,5 +1,6 @@
-import 'package:flutter_iconly/flutter_iconly.dart';
+import 'package:flutter/material.dart';
 
 class AppIcons {
-  static const settings = IconlyBroken.setting;
+  static const lightMode = Icons.light_mode_outlined;
+  static const darkMode = Icons.dark_mode_outlined;
 }

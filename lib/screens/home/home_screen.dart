@@ -1,3 +1,4 @@
+import 'package:ana_muslim/provider/theme_provider.dart';
 import 'package:ana_muslim/resources/assets_manager.dart';
 import 'package:ana_muslim/resources/icons_manager.dart';
 import 'package:ana_muslim/resources/strings_manager.dart';
@@ -7,7 +8,7 @@ import 'package:ana_muslim/screens/ahadeth/ahadeth_screen.dart';
 import 'package:ana_muslim/screens/quran/quran_screen.dart';
 import 'package:ana_muslim/screens/doaa/doaa_screen.dart';
 import 'package:ana_muslim/screens/sebha/sebha_screen.dart';
-import 'package:ana_muslim/screens/settings/settings_screen.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -37,7 +38,6 @@ class _HomeScreenState extends State<HomeScreen> {
     const DoaaScreen(),
     QuranScreen(),
     const AhadethScreen(),
-    const SettingsScreen()
   ];
 
   @override
@@ -55,9 +55,14 @@ class _HomeScreenState extends State<HomeScreen> {
           bottomNavigationBar: BottomNavigationBar(
             currentIndex: _currentIndex,
             onTap: (index) {
-              setState(() {
-                _currentIndex = index;
-              });
+              if (index != _screens.length) {
+                setState(() {
+                  _currentIndex = index;
+                });
+              } else {
+                // Toggle the app's theme if Settings icon is tapped
+                _toggleTheme(context);
+              }
             },
             items: _navBarItems(context),
           ),
@@ -69,6 +74,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   List<BottomNavigationBarItem> _navBarItems(BuildContext context) {
     Color bottomNavBarColor = Utils(context).bottomNavBarColor;
+    final themeState = context.read<ThemeProvider>();
 
     return [
       BottomNavigationBarItem(
@@ -104,10 +110,17 @@ class _HomeScreenState extends State<HomeScreen> {
         backgroundColor: bottomNavBarColor,
       ),
       BottomNavigationBarItem(
-        icon: const Icon(AppIcons.settings),
+        icon: Icon(
+            themeState.getDarkTheme ? AppIcons.lightMode : AppIcons.darkMode),
         label: AppStrings.settings,
         backgroundColor: bottomNavBarColor,
       )
     ];
+  }
+
+  void _toggleTheme(BuildContext context) {
+    final themeState = context.read<ThemeProvider>();
+
+    themeState.setDarkTheme = !themeState.getDarkTheme;
   }
 }

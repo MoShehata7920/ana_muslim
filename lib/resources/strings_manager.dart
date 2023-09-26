@@ -9,7 +9,7 @@ class AppStrings {
 
   // Home Screen
   static const String anaMuslim = "Ana Muslim";
-  static const String radio = "الراديو";
+  static const String doaa = "الدعاء";
   static const String tasbeh = "التسبيح";
   static const String quran = "القرآن";
   static const String quranElKareem = "القرآن الكريم";

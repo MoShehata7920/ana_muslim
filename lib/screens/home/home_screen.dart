@@ -5,7 +5,7 @@ import 'package:ana_muslim/service/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:ana_muslim/screens/ahadeth/ahadeth_screen.dart';
 import 'package:ana_muslim/screens/quran/quran_screen.dart';
-import 'package:ana_muslim/screens/radio/radio_screen.dart';
+import 'package:ana_muslim/screens/doaa/doaa_screen.dart';
 import 'package:ana_muslim/screens/sebha/sebha_screen.dart';
 import 'package:ana_muslim/screens/settings/settings_screen.dart';
 
@@ -33,8 +33,8 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   final List<Widget> _screens = [
-    const RadioScreen(),
     const SebhaScreen(),
+    const DoaaScreen(),
     QuranScreen(),
     const AhadethScreen(),
     const SettingsScreen()
@@ -73,18 +73,18 @@ class _HomeScreenState extends State<HomeScreen> {
     return [
       BottomNavigationBarItem(
         icon: const ImageIcon(
-          AssetImage(ImageAssets.radio),
-          size: 30,
-        ),
-        label: AppStrings.radio,
-        backgroundColor: bottomNavBarColor,
-      ),
-      BottomNavigationBarItem(
-        icon: const ImageIcon(
           AssetImage(ImageAssets.sebha),
           size: 30,
         ),
         label: AppStrings.tasbeh,
+        backgroundColor: bottomNavBarColor,
+      ),
+      BottomNavigationBarItem(
+        icon: const ImageIcon(
+          AssetImage(ImageAssets.doaa),
+          size: 30,
+        ),
+        label: AppStrings.doaa,
         backgroundColor: bottomNavBarColor,
       ),
       BottomNavigationBarItem(

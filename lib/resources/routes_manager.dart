@@ -1,4 +1,5 @@
 import 'package:ana_muslim/resources/strings_manager.dart';
+import 'package:ana_muslim/screens/adya/doaa/doaa_scree.dart';
 import 'package:ana_muslim/screens/ahadeth/hadeth_screen/hadeth_screen.dart';
 import 'package:ana_muslim/screens/home/home_screen.dart';
 import 'package:ana_muslim/screens/quran/sura/sura.dart';
@@ -10,6 +11,7 @@ class Routes {
   static const String homeRoute = "/home";
   static const String suraRoute = "/sura";
   static const String hadethRoute = "/hadeth";
+  static const String doaaRoute = "/doaa";
 }
 
 class RouteGenerator {
@@ -28,6 +30,10 @@ class RouteGenerator {
       case Routes.hadethRoute:
         return MaterialPageRoute(
             builder: (context) => HadethScreen(settings.arguments));
+
+      case Routes.doaaRoute:
+        return MaterialPageRoute(
+            builder: (context) => DoaaScreen(settings.arguments));
 
       default:
         return unDefinedRoute();

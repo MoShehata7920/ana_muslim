@@ -6,7 +6,7 @@ import 'package:ana_muslim/service/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:ana_muslim/screens/ahadeth/ahadeth_screen.dart';
 import 'package:ana_muslim/screens/quran/quran_screen.dart';
-import 'package:ana_muslim/screens/doaa/doaa_screen.dart';
+import 'package:ana_muslim/screens/adya/adya_screen.dart';
 import 'package:ana_muslim/screens/sebha/sebha_screen.dart';
 import 'package:provider/provider.dart';
 
@@ -35,7 +35,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   final List<Widget> _screens = [
     const SebhaScreen(),
-    const DoaaScreen(),
+    AdyaScreen(),
     QuranScreen(),
     const AhadethScreen(),
   ];

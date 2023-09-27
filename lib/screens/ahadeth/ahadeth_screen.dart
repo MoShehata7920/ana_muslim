@@ -47,6 +47,7 @@ class _AhadethScreenState extends State<AhadethScreen> {
             },
             child: Center(
                 child: Text(ahadethData[index].name,
+                    textAlign: TextAlign.center,
                     style: const TextStyle(fontSize: 20))),
           );
         },

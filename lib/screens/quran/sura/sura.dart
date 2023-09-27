@@ -62,6 +62,7 @@ class SuraScreenState extends State<SuraScreen> {
                 fontWeight: FontWeight.w600,
                 color: textColor,
               ),
+              textDirection: TextDirection.rtl,
             ),
           );
         },

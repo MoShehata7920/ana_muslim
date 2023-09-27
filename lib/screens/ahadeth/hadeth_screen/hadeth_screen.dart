@@ -38,6 +38,7 @@ class HadethScreenState extends State<HadethScreen> {
               hadethModel.hadethContent[index],
               textAlign: TextAlign.center,
               style: Theme.of(context).textTheme.bodySmall,
+              textDirection: TextDirection.rtl,
             ),
           );
         },

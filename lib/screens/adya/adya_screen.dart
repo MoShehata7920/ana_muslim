@@ -36,6 +36,7 @@ class AdyaScreen extends StatelessWidget {
             },
             child: Center(
                 child: Text(_doaaName[index],
+                    textAlign: TextAlign.center,
                     style: const TextStyle(fontSize: 20))),
           );
         },

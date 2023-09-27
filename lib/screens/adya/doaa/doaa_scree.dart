@@ -44,6 +44,7 @@ class DoaaScreenState extends State<DoaaScreen> {
               doaaString[index],
               textAlign: TextAlign.center,
               style: Theme.of(context).textTheme.bodySmall,
+              textDirection: TextDirection.rtl,
             ),
           );
         },

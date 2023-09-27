@@ -25,46 +25,44 @@ class _SplashViewBodyState extends State<SplashViewBody> {
   Widget build(BuildContext context) {
     Size size = Utils(context).screenSize;
 
-    return SingleChildScrollView(
-      child: Center(
-        child: Column(
-          children: [
-            SizedBox(
-              height: size.height * 0.1,
-            ),
-            SizedBox(
-              height: size.height * 0.4,
-              child: Lottie.asset(JsonAssets.splash).animateOnPageLoad(
-                  msDelay: 150, dx: 0.0, dy: -200.0, showDelay: 900),
-            ),
-            Column(
-              children: [
-                SizedBox(
-                  height: size.height * 0.35,
+    return Center(
+      child: Column(
+        children: [
+          SizedBox(
+            height: size.height * 0.1,
+          ),
+          SizedBox(
+            height: size.height * 0.4,
+            child: Lottie.asset(JsonAssets.splash).animateOnPageLoad(
+                msDelay: 150, dx: 0.0, dy: -200.0, showDelay: 900),
+          ),
+          Column(
+            children: [
+              SizedBox(
+                height: size.height * 0.35,
+              ),
+              const Text(
+                AppStrings.developedBy,
+                style: TextStyle(
+                  color: Color(0xFF00BCD4),
+                  fontSize: 18,
                 ),
-                const Text(
-                  AppStrings.developedBy,
-                  style: TextStyle(
-                    color: Color(0xFF00BCD4),
-                    fontSize: 18,
-                  ),
-                ).animateOnPageLoad(
-                    msDelay: 300, dx: 0.0, dy: 70.0, showDelay: 300),
-                const SizedBox(
-                  height: 10,
+              ).animateOnPageLoad(
+                  msDelay: 300, dx: 0.0, dy: 70.0, showDelay: 300),
+              const SizedBox(
+                height: 10,
+              ),
+              const Text(
+                AppStrings.mohamedShehata,
+                style: TextStyle(
+                  color: Color(0xFF707099),
+                  fontSize: 16,
                 ),
-                const Text(
-                  AppStrings.mohamedShehata,
-                  style: TextStyle(
-                    color: Color(0xFF707099),
-                    fontSize: 16,
-                  ),
-                ).animateOnPageLoad(
-                    msDelay: 300, dx: 0.0, dy: 70.0, showDelay: 300),
-              ],
-            ),
-          ],
-        ),
+              ).animateOnPageLoad(
+                  msDelay: 300, dx: 0.0, dy: 70.0, showDelay: 300),
+            ],
+          ),
+        ],
       ),
     );
   }

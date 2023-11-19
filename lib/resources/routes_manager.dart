@@ -25,7 +25,7 @@ class RouteGenerator {
 
       case Routes.suraRoute:
         return MaterialPageRoute(
-            builder: (context) => SuraScreen(settings.arguments));
+            builder: (context) => SuraScreen(settings.arguments.toString()));
 
       case Routes.hadethRoute:
         return MaterialPageRoute(

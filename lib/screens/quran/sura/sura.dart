@@ -1,71 +1,56 @@
 // ignore_for_file: no_logic_in_create_state
 
-import 'package:ana_muslim/models/sura_model.dart';
-import 'package:ana_muslim/service/utils.dart';
-import 'package:ana_muslim/widgets/custom_inner_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:quran/quran.dart' as quran;
+import 'package:card_swiper/card_swiper.dart';
 
-class SuraScreen extends StatefulWidget {
-  final Object? suraModel;
+class SuraScreen extends StatelessWidget {
+  final String startImageIndex;
 
-  const SuraScreen(this.suraModel, {Key? key}) : super(key: key);
+  const SuraScreen(this.startImageIndex, {Key? key}) : super(key: key);
 
-  @override
-  SuraScreenState createState() => SuraScreenState(suraModel as SuraModel);
-}
+  List<String> generateImageList() {
+    int startIndex = int.parse(startImageIndex);
+    List<String> imageList = [];
 
-class SuraScreenState extends State<SuraScreen> {
-  SuraModel suraModel;
-  SuraScreenState(this.suraModel);
+    for (int i = startIndex; i <= 604; i++) {
+      imageList.add(i.toString());
+    }
 
-  int verseIndex = 0;
-
-  @override
-  void initState() {
-    super.initState();
+    return imageList;
   }
 
   @override
   Widget build(BuildContext context) {
-    return CustomInnerScreen(
-      screenTitle: suraModel.name,
-      juzNumber:
-          quran.getJuzNumber(suraModel.index + 1, verseIndex + 1).toString(),
-      isSuraScreen: true,
-      isMakeah: (quran.getPlaceOfRevelation(suraModel.index + 1).toString() ==
-          "Makkah"),
-      screenBody: screenBody(context),
-    );
-  }
+    List<String> imageFilenames = generateImageList();
 
-  Widget screenBody(BuildContext context) {
-    Color textColor = Utils(context).textColor;
-    return Expanded(
-      child: ListView.builder(
-        physics: const BouncingScrollPhysics(),
-        padding: const EdgeInsets.symmetric(vertical: 2),
-        itemCount: quran.getVerseCount(suraModel.index + 1),
+    return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        toolbarHeight: 1,
+      ),
+      body: Swiper(
+        loop: false,
+        itemCount: imageFilenames.length,
         itemBuilder: (context, index) {
-          return ListTile(
-            onTap: () {
-              setState(() {
-                verseIndex = index;
-              });
-            },
-            title: Text(
-              quran.getVerse(suraModel.index + 1, index + 1,
-                  verseEndSymbol: true),
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 25,
-                fontWeight: FontWeight.w600,
-                color: textColor,
+          return Center(
+            child: Padding(
+              padding: const EdgeInsets.only(bottom: 8),
+              child: Container(
+                height: MediaQuery.of(context).size.height - 30,
+                width: MediaQuery.of(context).size.width - 30,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    fit: BoxFit.fill,
+                    image: AssetImage(
+                      'assets/images/quran/${imageFilenames[index]}.png',
+                    ),
+                  ),
+                ),
               ),
-              textDirection: TextDirection.rtl,
             ),
           );
         },
+        autoplay: false,
       ),
     );
   }

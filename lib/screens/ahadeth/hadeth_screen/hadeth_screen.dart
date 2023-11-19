@@ -23,7 +23,6 @@ class HadethScreenState extends State<HadethScreen> {
     return CustomInnerScreen(
       screenTitle: hadethModel.name,
       juzNumber: "",
-      isSuraScreen: false,
       isMakeah: false,
       screenBody: screenBody(),
     );

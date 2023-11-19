@@ -29,7 +29,6 @@ class DoaaScreenState extends State<DoaaScreen> {
     return CustomInnerScreen(
       screenTitle: doaaModel.name,
       juzNumber: "",
-      isSuraScreen: false,
       isMakeah: false,
       screenBody: screenBody(),
     );

@@ -18,10 +18,6 @@ class AppStrings {
   static const String elAhadethElSharif = "الأحاديث الشريفه";
   static const String settings = "الإعدادات";
 
-  // Sura Screen
-  static const String besmAllah = "بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ";
-  static const String juzaa = "الجزء";
-
   // Sebha Screen
   static const String sebhaCounter = "عدد التسابيح:";
   static const String sabah = "سبح";

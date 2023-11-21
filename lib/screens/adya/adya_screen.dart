@@ -1,9 +1,10 @@
+import 'package:flutter/material.dart';
+
 import 'package:ana_muslim/models/doaa_model.dart';
 import 'package:ana_muslim/resources/assets_manager.dart';
 import 'package:ana_muslim/resources/routes_manager.dart';
 import 'package:ana_muslim/resources/strings_manager.dart';
 import 'package:ana_muslim/widgets/custom_screen_top.dart';
-import 'package:flutter/material.dart';
 
 class AdyaScreen extends StatelessWidget {
   AdyaScreen({super.key});
@@ -12,7 +13,10 @@ class AdyaScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomScreenTop(
       topIcon: ImageAssets.doaaIcon,
-      screenTitle: AppStrings.adya,
+      screenTitle: Text(
+        AppStrings.adya,
+        style: Theme.of(context).textTheme.bodyMedium,
+      ),
       screenBody: screenBody(),
     );
   }

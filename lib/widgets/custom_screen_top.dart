@@ -1,5 +1,6 @@
-import 'package:ana_muslim/service/animation.dart';
 import 'package:flutter/material.dart';
+
+import 'package:ana_muslim/service/animation.dart';
 
 class CustomScreenTop extends StatelessWidget {
   const CustomScreenTop(
@@ -7,7 +8,8 @@ class CustomScreenTop extends StatelessWidget {
       required this.topIcon,
       required this.screenTitle,
       required this.screenBody});
-  final String topIcon, screenTitle;
+  final String topIcon;
+  final Widget screenTitle;
   final Widget screenBody;
 
   @override
@@ -19,10 +21,8 @@ class CustomScreenTop extends StatelessWidget {
               msDelay: 150, dx: 0.0, dy: -200.0, showDelay: 900),
         ),
         const Divider(color: Color(0xFFB7935F), thickness: 2),
-        Text(
-          screenTitle,
-          style: Theme.of(context).textTheme.bodyMedium,
-        ).animateOnPageLoad(msDelay: 150, dx: 0.0, dy: -200.0, showDelay: 900),
+        screenTitle.animateOnPageLoad(
+            msDelay: 150, dx: 0.0, dy: -200.0, showDelay: 900),
         const Divider(color: Color(0xFFB7935F), thickness: 2),
         screenBody
       ],

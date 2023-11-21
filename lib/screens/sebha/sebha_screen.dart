@@ -1,11 +1,12 @@
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
 import 'package:ana_muslim/provider/sebha_provider.dart';
 import 'package:ana_muslim/resources/assets_manager.dart';
 import 'package:ana_muslim/resources/strings_manager.dart';
 import 'package:ana_muslim/service/animation.dart';
 import 'package:ana_muslim/service/utils.dart';
 import 'package:ana_muslim/widgets/custom_screen_top.dart';
-import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class SebhaScreen extends StatelessWidget {
   const SebhaScreen({super.key});
@@ -16,7 +17,10 @@ class SebhaScreen extends StatelessWidget {
       builder: (context, sebhaProvider, _) {
         return CustomScreenTop(
           topIcon: ImageAssets.tasbeh,
-          screenTitle: sebhaProvider.zekrContent,
+          screenTitle: Text(
+            sebhaProvider.zekrContent,
+            style: Theme.of(context).textTheme.bodyMedium,
+          ),
           screenBody:
               screenBody(context, sebhaProvider.update, sebhaProvider.restart),
         );

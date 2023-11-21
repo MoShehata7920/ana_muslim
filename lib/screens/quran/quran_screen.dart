@@ -1,10 +1,12 @@
+import 'package:flutter/material.dart';
+
 import 'package:ana_muslim/resources/assets_manager.dart';
+import 'package:ana_muslim/resources/icons_manager.dart';
 import 'package:ana_muslim/resources/routes_manager.dart';
 import 'package:ana_muslim/resources/strings_manager.dart';
 import 'package:ana_muslim/screens/quran/quran_assets.dart';
 import 'package:ana_muslim/service/animation.dart';
 import 'package:ana_muslim/widgets/custom_screen_top.dart';
-import 'package:flutter/material.dart';
 
 class QuranScreen extends StatelessWidget {
   const QuranScreen({super.key});
@@ -13,7 +15,25 @@ class QuranScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomScreenTop(
       topIcon: ImageAssets.quranIcon,
-      screenTitle: AppStrings.quranElKareem,
+      screenTitle: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          const SizedBox(),
+          Text(
+            AppStrings.quranElKareem,
+            style: Theme.of(context).textTheme.bodyMedium,
+          ),
+          IconButton(
+            icon: const Icon(
+              AppIcons.bookmarked,
+              color: Colors.red,
+            ),
+            onPressed: () {
+              Navigator.pushNamed(context, Routes.bookmarksRoute);
+            },
+          )
+        ],
+      ),
       screenBody: screenBody(),
     );
   }

@@ -1,10 +1,12 @@
+import 'package:flutter/material.dart';
+
 import 'package:ana_muslim/resources/strings_manager.dart';
 import 'package:ana_muslim/screens/adya/doaa/doaa_scree.dart';
 import 'package:ana_muslim/screens/ahadeth/hadeth_screen/hadeth_screen.dart';
+import 'package:ana_muslim/screens/bookmarks/bookmarks_screen.dart';
 import 'package:ana_muslim/screens/home/home_screen.dart';
 import 'package:ana_muslim/screens/quran/sura/sura.dart';
 import 'package:ana_muslim/screens/splash_screen/splash_screen.dart';
-import 'package:flutter/material.dart';
 
 class Routes {
   static const String splashRoute = "/";
@@ -12,6 +14,7 @@ class Routes {
   static const String suraRoute = "/sura";
   static const String hadethRoute = "/hadeth";
   static const String doaaRoute = "/doaa";
+  static const String bookmarksRoute = "/bookmarks";
 }
 
 class RouteGenerator {
@@ -34,6 +37,9 @@ class RouteGenerator {
       case Routes.doaaRoute:
         return MaterialPageRoute(
             builder: (context) => DoaaScreen(settings.arguments));
+
+      case Routes.bookmarksRoute:
+        return MaterialPageRoute(builder: (context) => const BookmarksScreen());
 
       default:
         return unDefinedRoute();

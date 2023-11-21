@@ -1,3 +1,4 @@
+import 'package:ana_muslim/provider/bookmark_provider.dart';
 import 'package:ana_muslim/provider/sebha_provider.dart';
 import 'package:ana_muslim/provider/theme_provider.dart';
 import 'package:ana_muslim/resources/routes_manager.dart';
@@ -43,6 +44,11 @@ class _MyAppState extends State<MyApp> {
         ChangeNotifierProvider(
           create: (_) {
             return SebhaProvider();
+          },
+        ),
+        ChangeNotifierProvider(
+          create: (_) {
+            return BookmarkData();
           },
         ),
       ],

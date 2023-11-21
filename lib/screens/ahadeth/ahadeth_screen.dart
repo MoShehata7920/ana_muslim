@@ -1,10 +1,11 @@
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+
 import 'package:ana_muslim/models/hadeth_model.dart';
 import 'package:ana_muslim/resources/assets_manager.dart';
 import 'package:ana_muslim/resources/routes_manager.dart';
 import 'package:ana_muslim/resources/strings_manager.dart';
 import 'package:ana_muslim/widgets/custom_screen_top.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 class AhadethScreen extends StatefulWidget {
   const AhadethScreen({super.key});
@@ -23,7 +24,10 @@ class _AhadethScreenState extends State<AhadethScreen> {
     }
     return CustomScreenTop(
       topIcon: ImageAssets.hadethIcon,
-      screenTitle: AppStrings.elAhadethElSharif,
+      screenTitle: Text(
+        AppStrings.elAhadethElSharif,
+        style: Theme.of(context).textTheme.bodyMedium,
+      ),
       screenBody: screenBody(),
     );
   }

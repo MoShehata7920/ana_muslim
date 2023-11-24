@@ -20,4 +20,5 @@ class ImageAssets {
 class JsonAssets {
   //Splash
   static const String splash = "$jsonPath/splash.json";
+  static const String empty = "$jsonPath/empty.json";
 }

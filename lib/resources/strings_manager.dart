@@ -22,4 +22,9 @@ class AppStrings {
   static const String sebhaCounter = "عدد التسابيح:";
   static const String sabah = "سبح";
   static const String reset = "إعادة تعيين";
+
+  static const String bookmarks = "الإشارات المرجعيه";
+  static const String page = "صفحه";
+
+  static const String errorOccurred = "نعتذر عن الخطأ, حاول مره أخرى";
 }

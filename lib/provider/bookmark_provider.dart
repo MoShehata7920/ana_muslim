@@ -1,22 +1,37 @@
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class BookmarkData extends ChangeNotifier {
   final logger = Logger();
+  SharedPreferences _prefs;
+
+  // Constructor to initialize SharedPreferences
+  BookmarkData(this._prefs);
+
   // Data structure to store page-level bookmarks
   final Map<int, Set<int>> _bookmarkedPages = {};
 
   // Function to toggle bookmark status for a specific page
-  void toggleBookmark(int pageNumber) {
+  Future<void> toggleBookmark(int pageNumber) async {
     if (_bookmarkedPages.containsKey(pageNumber)) {
       _bookmarkedPages.remove(pageNumber);
-      logger.i("unBookmarked page: $pageNumber");
+      logger.i("Unbookmarked page: $pageNumber");
     } else {
-      _bookmarkedPages[pageNumber] = {pageNumber};
-      logger.i("bookmarked page: $pageNumber");
+      _bookmarkedPages[pageNumber] = {}; // Empty set for the page
+      logger.i("Bookmarked page: $pageNumber");
     }
 
+    await _updateBookmarksInPrefs();
     notifyListeners();
+  }
+
+  // Function to update bookmarks in SharedPreferences
+  Future<void> _updateBookmarksInPrefs() async {
+    await _prefs.setStringList(
+      'bookmarkedPages',
+      _bookmarkedPages.keys.map((pageNumber) => pageNumber.toString()).toList(),
+    );
   }
 
   // Function to check if a page is bookmarked
@@ -24,16 +39,26 @@ class BookmarkData extends ChangeNotifier {
     return _bookmarkedPages.containsKey(pageNumber);
   }
 
-  // Function to get all bookmarked pages for a specific page number
+  // Function to get all bookmarked pages
   Set<int>? getBookmarkedPages() {
-    Set<int> allBookmarkedPages = {};
+    return _bookmarkedPages.keys.toSet();
+  }
 
-    _bookmarkedPages.forEach((pageNumber, pages) {
-      allBookmarkedPages.addAll(pages);
-    });
+  Future<void> initializePrefs() async {
+    _prefs = await SharedPreferences.getInstance();
+    _loadBookmarkedPagesFromPrefs();
+  }
 
-    logger.i('All bookmarked pages: $allBookmarkedPages');
-
-    return allBookmarkedPages.isNotEmpty ? allBookmarkedPages : null;
+  void _loadBookmarkedPagesFromPrefs() {
+    final List<String>? savedPages = _prefs.getStringList('bookmarkedPages');
+    if (savedPages != null) {
+      _bookmarkedPages.clear();
+      for (final pageNumberString in savedPages) {
+        final pageNumber = int.tryParse(pageNumberString);
+        if (pageNumber != null) {
+          _bookmarkedPages[pageNumber] = {}; 
+        }
+      }
+    }
   }
 }

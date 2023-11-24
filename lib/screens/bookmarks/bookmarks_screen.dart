@@ -1,15 +1,37 @@
-import 'package:ana_muslim/resources/icons_manager.dart';
-import 'package:ana_muslim/service/animation.dart';
-import 'package:ana_muslim/service/utils.dart';
-import 'package:ana_muslim/widgets/bookmark_widget.dart';
+import 'package:ana_muslim/resources/strings_manager.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 
 import 'package:ana_muslim/provider/bookmark_provider.dart';
+import 'package:ana_muslim/resources/assets_manager.dart';
+import 'package:ana_muslim/resources/icons_manager.dart';
 import 'package:ana_muslim/resources/routes_manager.dart';
+import 'package:ana_muslim/service/animation.dart';
+import 'package:ana_muslim/service/utils.dart';
+import 'package:ana_muslim/widgets/bookmark_widget.dart';
 
-class BookmarksScreen extends StatelessWidget {
+class BookmarksScreen extends StatefulWidget {
   const BookmarksScreen({super.key});
+
+  @override
+  State<BookmarksScreen> createState() => _BookmarksScreenState();
+}
+
+class _BookmarksScreenState extends State<BookmarksScreen> {
+  late Set<int> bookmarkedPages;
+
+  @override
+  void initState() {
+    super.initState();
+    loadBookmarkedPages();
+  }
+
+  Future<void> loadBookmarkedPages() async {
+    final bookmarkData = Provider.of<BookmarkData>(context, listen: false);
+    bookmarkedPages = bookmarkData.getBookmarkedPages() ?? {};
+    setState(() {}); // Update the UI after loading bookmarks
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +48,7 @@ class BookmarksScreen extends StatelessWidget {
         Scaffold(
           appBar: AppBar(
             title: Text(
-              "Bookmarks",
+              AppStrings.bookmarks,
               style: Theme.of(context).textTheme.bodyMedium,
             ).animateOnPageLoad(
                 msDelay: 150, dx: 0.0, dy: -200.0, showDelay: 900),
@@ -36,7 +58,9 @@ class BookmarksScreen extends StatelessWidget {
                 },
                 icon: Icon(AppIcons.backArrow, color: textColor)),
           ),
-          body: bookmarkScreenBody(context),
+          body: bookmarkedPages.isEmpty
+              ? Center(child: Lottie.asset(JsonAssets.empty))
+              : bookmarkScreenBody(context),
         ),
       ],
     );
@@ -55,7 +79,7 @@ class BookmarksScreen extends StatelessWidget {
 
           return ListTile(
             title: Text(
-              'Page $pageNumber',
+              '$pageNumber :${AppStrings.page}',
               style: Theme.of(context).textTheme.bodyMedium,
             ).animateOnPageLoad(
                 msDelay: 150, dx: -100.0, dy: 0.0, showDelay: 900),

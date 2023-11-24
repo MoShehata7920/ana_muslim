@@ -7,4 +7,7 @@ class AppIcons {
 
   static const bookmarked = IconlyBold.bookmark;
   static const notBookmarked = IconlyBroken.bookmark;
+
+  static const backArrow = IconlyBroken.arrowLeft;
+  static const page = IconlyBroken.paper;
 }

@@ -8,6 +8,7 @@ Ana Muslim is a mobile application that provides access to Quran, Ahadeth, Doaa,
 - Ahadeth: Explore a collection of authentic Ahadeeth.
 - Doaa: Discover a variety of Islamic supplications (Adya).
 - Sebha: Engage in Dhikr using a digital Tasbeeh counter.
+- bookmarking: User can bookmark pages of Quran and back to this bookmark anytime.
 - Light and Dark Mode: Choose between light and dark themes for optimal reading.
 - Clean Code: Well-structured, clean code for easy understanding and maintenance.
 - Offline Functionality: App works without an internet connection for uninterrupted use.
@@ -34,6 +35,10 @@ Ana Muslim is a mobile application that provides access to Quran, Ahadeth, Doaa,
 | Sura Screen | Doaa Screen | Hadeth Screen |
 | :------: | :----------: | :----------: |
 | ![myAccount](screenshots/sura.jpg) | ![Settings](screenshots/doaa.jpg) | ![myAds](screenshots/hadeeth.jpg) |
+
+| Bookmarks Screen | Empty Bookmarks Screen |
+| :------: | :----------: |
+| ![conversations Screen](screenshots/bookmarks.jpg) | ![messaging Screen](screenshots/empty_bookmarks.jpg) |
 
 
 ## Installation
